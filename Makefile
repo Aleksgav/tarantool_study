@@ -10,3 +10,10 @@ db_clean:
 
 setup_vshard:
 	cartridge replicasets setup --bootstrap-vshard
+
+check:
+	.rocks/bin/luacheck .
+
+luatest:
+	cartridge stop  # to prevent "address already in use" error
+	.rocks/bin/luatest -v
